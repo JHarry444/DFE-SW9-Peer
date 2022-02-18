@@ -13,8 +13,9 @@ public class BearTest {
 
 	@Test
 	public void testValidInput() {
-		List<String> input = List.of("100 80", "30 50", "130 60", "90 70", "150 85", "120 70", "200 100", "110 90");
-		List<Integer> expectedOutput = List.of(2, 5);
+		List<String> input = List.of("100 80", "30 50 40", "130 60 75", "90 70 55", "150 85 45", "120 70 66",
+				"200 100 30", "110 90 99");
+		List<Integer> expectedOutput = List.of(2);
 
 		List<Integer> actualOutput = this.necessities.checkPlaces(input);
 		assertEquals(expectedOutput, actualOutput);

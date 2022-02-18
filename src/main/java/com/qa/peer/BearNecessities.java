@@ -9,25 +9,11 @@ public class BearNecessities {
 		if (input == null || input.size() < 2)
 			return null;
 		List<Integer> places = new ArrayList<>();
-
-		int goldWeight = 0;
-		int goldMaxTemp = 0;
-
-		for (int i = 0; i < input.size(); i++) {
-			String[] data = input.get(i).split(" "); // "100 80" -> {"100", "80"}
-			int weight = Integer.parseInt(data[0]);
-			int temp = Integer.parseInt(data[1]);
-
-			if (i == 0) {
-				goldWeight = weight;
-				goldMaxTemp = temp;
-				continue;
-			}
-
-			if (weight > goldWeight && temp < goldMaxTemp)
+		Goldilocks gold = new Goldilocks(input.get(0));
+		for (int i = 1; i < input.size(); i++) {
+			if (gold.check(new Place(input.get(i))))
 				places.add(i);
 		}
-
 		return places;
 	}
 
